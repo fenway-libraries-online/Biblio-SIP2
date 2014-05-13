@@ -4,8 +4,9 @@ use IO::Socket;
 
 require Exporter;
 
-use vars qw(@ISA @EXPORT_OK);
+use vars qw($VERSION @ISA @EXPORT_OK);
 
+$VERSION = '0.03';
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(returns fixed variable timestamp);
 
