@@ -350,3 +350,22 @@ sub timestamp {
 
 1;
 
+=pod
+
+=head1 NAME
+
+Biblio::SIP2 - SIP2 self-check interface for integrated library systems
+
+=head1 SYNOPSIS
+
+    use Biblio::SIP2;
+    %config = ( patron => $barcode, ... );
+    $sip = Biblio::SIP2->new(%config);
+    $sip->connect or die;
+    $sip->login   or die;
+    %res = $sip->checkout($patron_barcode, $item_barcode);
+    %res = $sip->hold($patron_barcode, $bib_id, $item_barcode);
+    %res = $sip->cancel_hold($patron_barcode, $bib_id, $item_barcode);
+    # etc.
+
+=cut
