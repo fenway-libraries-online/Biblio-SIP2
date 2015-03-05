@@ -327,8 +327,8 @@ sub request {
     my $buf;
     my $result = $socket->recv($buf, 1024);
     die "No reply" if !defined $result;
-    die "Ill-formed response" if $buf !~ s/\r\z//;
     print STDERR "** SIP2 <- $buf\n" if $self->{debug};
+    die "Ill-formed response" if $buf !~ s/\r\z//;
     if ($buf =~ s/^$exp//) {
         for ($buf) {
             my %result = ( 'command_identifier' => $exp, $req->(), $opt->() );
